@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Siri" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cyrus" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CtM-HG-XED">
+                                <rect key="frame" x="0.0" y="20" width="375" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RL2-YE-xML">
+                                <rect key="frame" x="16" y="62" width="343" height="260"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wF6-O8-cvx">
+                                <rect key="frame" x="16" y="575" width="343" height="72"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="microphoneTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Miv-0u-Wyb"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ic4-YX-rXs">
+                                <rect key="frame" x="16" y="330" width="343" height="237"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="237" id="3ay-V2-QmH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="RL2-YE-xML" firstAttribute="top" secondItem="CtM-HG-XED" secondAttribute="bottom" constant="8" id="2PA-zY-4CZ"/>
+                            <constraint firstItem="CtM-HG-XED" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="6AH-Bs-eWS"/>
+                            <constraint firstAttribute="trailing" secondItem="RL2-YE-xML" secondAttribute="trailing" constant="16" id="7vH-Iq-Dfp"/>
+                            <constraint firstItem="wF6-O8-cvx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="BbR-Pk-6ru"/>
+                            <constraint firstItem="Ic4-YX-rXs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="FBb-1I-Bsq"/>
+                            <constraint firstItem="CtM-HG-XED" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Rn6-To-fkH"/>
+                            <constraint firstAttribute="trailing" secondItem="CtM-HG-XED" secondAttribute="trailing" id="ZA6-FT-Ndf"/>
+                            <constraint firstItem="RL2-YE-xML" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="aV2-gr-Kzw"/>
+                            <constraint firstItem="Ic4-YX-rXs" firstAttribute="top" secondItem="RL2-YE-xML" secondAttribute="bottom" constant="8" id="c9R-KY-jQa"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="wF6-O8-cvx" secondAttribute="bottom" constant="20" id="mco-re-QMm"/>
+                            <constraint firstItem="wF6-O8-cvx" firstAttribute="top" secondItem="Ic4-YX-rXs" secondAttribute="bottom" constant="8" id="nB8-46-Zrw"/>
+                            <constraint firstItem="Ic4-YX-rXs" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="o5h-JC-D92"/>
+                            <constraint firstItem="wF6-O8-cvx" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="xP5-wY-heJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="microphoneButton" destination="wF6-O8-cvx" id="V9V-fM-n1g"/>
+                        <outlet property="sqlTextView" destination="Ic4-YX-rXs" id="Me1-fL-9s1"/>
+                        <outlet property="verbalTextView" destination="RL2-YE-xML" id="WCI-r4-v5k"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
+        </scene>
+    </scenes>
+</document>
