@@ -162,7 +162,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, SFSpeechReco
                     print(tableNamesUsedInQuery.joined())
                     
                     var indexOfFirstTableOccurrence = 0
-                    var deconstructedWords: [String] = deconstructedSentence.map({ $0.0 })
+                    var deconstructedWords: [String] = deconstructedSentence.map({ $0.0.lowercased() })
                     
                     if tableNamesUsedInQuery.count > 0 {
                         
@@ -259,7 +259,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, SFSpeechReco
                     if tableNamesUsedInQuery.count == 1 && tablesAndColumnsUsedInQuery[tableNamesUsedInQuery[0]]!.count == 0 {
                         // first possibility, only recognized word is a single table name
                         // if the only recognized text is a table name, select * from that table name
-                        self.sqlTextView.text = "SELECT * FROM " + tableNamesUsedInQuery[0]
+                        self.sqlTextView.text = "\"" + sentence + "\"" + "\n\n=\n\n" + "SELECT * FROM " + tableNamesUsedInQuery[0]
                         self.verbalTextView.text = DatabaseHelper.getAllRowsForTable(table: tableNamesUsedInQuery[0]).joined(separator: ".\n\n")
                     } else if indexOfFirstColumnOccurrence < indexOfFirstTableOccurrence {
                         // there were columns in the query, as well as tables
@@ -296,7 +296,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, SFSpeechReco
                         let columnNamesAppearingBeforeFirstTable = columnsAppearingBeforeFirstTable.map({ $0.0 })
                         let tableString = prunedDeconstructedSentence[columnNameArrayIndex+1].0
                         let sqlString = "SELECT " + columnNamesAppearingBeforeFirstTable.joined(separator: ", ") + " FROM " + tableString
-                        self.sqlTextView.text = sqlString
+                        self.sqlTextView.text = "\"" + sentence + "\"" + "\n\n=\n\n" + sqlString
                         self.verbalTextView.text = DatabaseHelper.executeSql(sql: sqlString, columns: columnNamesAppearingBeforeFirstTable, table: tableString).joined(separator: ".\n")
                         
                         print(sqlString)
@@ -380,8 +380,9 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, SFSpeechReco
                                 i += 1
                             }
                         }
-//                        self.sqlTextView.text = sqlString
-                        self.verbalTextView.text = DatabaseHelper.executeSelectAllWhereSql(table: tableString, whereColumns: Array(columnAndConditionWithConditionType.keys), whereValuesAndTypes: Array(columnAndConditionWithConditionType.values)).joined(separator: ".\n\n")
+                        var sql = ""
+                        self.verbalTextView.text = DatabaseHelper.executeSelectAllWhereSql(sqlString: &sql, table: tableString, whereColumns: Array(columnAndConditionWithConditionType.keys), whereValuesAndTypes: Array(columnAndConditionWithConditionType.values)).joined(separator: ".\n\n")
+                        self.sqlTextView.text = "\"" + sentence + "\"" + "\n\n=\n\n" + sql
 //                        print(sqlString)
                         
                     } else {

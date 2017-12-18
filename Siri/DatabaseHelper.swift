@@ -232,17 +232,23 @@ class DatabaseHelper {
         return rows
     }
     
-    static func executeSelectAllWhereSql(table: String, whereColumns: [String], whereValuesAndTypes: [(String, String)]) -> [String] {
+    static func executeSelectAllWhereSql(sqlString: inout String, table: String, whereColumns: [String], whereValuesAndTypes: [(String, String)]) -> [String] {
         var statement: OpaquePointer?
         
         var sql = "SELECT * FROM " + table + " WHERE "
         
         for i in 0...whereColumns.count-1 {
-            sql += whereColumns[i] + " = " + ((whereValuesAndTypes[i].1 == NSLinguisticTag.number.rawValue) ? whereValuesAndTypes[i].0 : "'" + whereValuesAndTypes[i].0 + "'")
+            if (whereValuesAndTypes[i].1 == NSLinguisticTag.number.rawValue) {
+                sql += whereColumns[i] + " = " + whereValuesAndTypes[i].0
+            } else {
+                sql += whereColumns[i] + " LIKE " + "'" + whereValuesAndTypes[i].0 + "'"
+            }
             if i != whereColumns.count - 1 {
                 sql += " AND "
             }
         }
+        
+        sqlString = sql
         
         print("YO BOI " + sql)
         
