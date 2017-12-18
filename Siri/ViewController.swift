@@ -387,6 +387,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, SFSpeechReco
                         
                     } else {
                         self.verbalTextView.text = "I'm not sure I understand. I can't determine your intent, perhaps try rephrasing or simplifying your query."
+                        self.sqlTextView.text = "\"" + sentence + "\""
                     }
                     // Cannot determine intent, please try rephrasing or simplifying your query
                     print(tablesAndColumnsUsedInQuery)
