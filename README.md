@@ -1,7 +1,7 @@
 # Cyrus
 Cyrus is an intelligent personal assistant that assists in the learning of SQL. Cyrus has flexible support for English converted to valid SQLite expressions and returns results in natural, spoken language.
 
-![Screenshot](https://imgur.com/a/rCMcY)
+![Screenshot](https://i.imgur.com/yJMLaPQ.png)
 
 # Features:
 **Wildcard Queries**
