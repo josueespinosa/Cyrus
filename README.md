@@ -1,7 +1,7 @@
 # Cyrus
 Cyrus is an intelligent personal assistant that assists in the learning of SQL. Cyrus has flexible support for English converted to valid SQLite expressions and returns results in natural, spoken language.
 
-<a href="http://ejosue.com/wp-content/uploads/ITiCSE-2018-NatQL-v7.pdf" target="_blank">ITiCSE 2018 paper discussing algorithms developed for Cyrus</a> 
+<a href="http://ejosue.com/wp-content/uploads/ITiCSE-2018-NatQL-v7.pdf" target="_blank">ITiCSE 2018 paper I wrote discussing algorithms developed for Cyrus</a> 
 
 <img src="https://i.imgur.com/yJMLaPQ.png" alt="Screenshot" width="250px">
 
